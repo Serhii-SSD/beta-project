@@ -1,48 +1,56 @@
-import{a as M}from"./assets/vendor-Bie5rgBU.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&i(c)}).observe(document,{childList:!0,subtree:!0});function r(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function i(e){if(e.ep)return;e.ep=!0;const o=r(e);fetch(e.href,o)}})();const O="https://events-store.b.goit.study";async function S(t){try{const{data:s}=await M.get(`${O}/api/events/${t}`);return s}catch(s){throw s}}const v="/beta-project/assets/sprite-kFDfZW0W.svg";function k(t){const s=document.querySelector(".modal-product");if(!s)return;const{_id:r,name:i,description:e,image:o,durationHours:c,rate:g,price:l,audience:u,category:h,program:b,inclusions:$}=t,m=Math.round(g);let d="";for(let n=0;n<m;n+=1)d+=`
+import{a as I}from"./assets/vendor-Bie5rgBU.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))l(e);new MutationObserver(e=>{for(const s of e)if(s.type==="childList")for(const i of s.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&l(i)}).observe(document,{childList:!0,subtree:!0});function n(e){const s={};return e.integrity&&(s.integrity=e.integrity),e.referrerPolicy&&(s.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?s.credentials="include":e.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function l(e){if(e.ep)return;e.ep=!0;const s=n(e);fetch(e.href,s)}})();const k="https://events-store.b.goit.study";async function q(t){try{const{data:o}=await I.get(`${k}/api/events/${t}`);return o}catch(o){throw o}}const u="/beta-project/assets/sprite-kFDfZW0W.svg";function P(t){const o=document.querySelector(".modal-product");if(!o)return;const{_id:n,name:l,description:e,image:s,durationHours:i,rate:f,price:m,audience:p,category:$,program:L,inclusions:w}=t;let c="";const v=Math.floor(f),d=f-v,_=d>=.25&&d<.75,E=v+(_||d>=.75?1:0);for(let a=0;a<v;a+=1)c+=`
       <svg class="modal-event__star modal-event__star--filled" width="16" height="16">
-        <use href="${v}#icon-star-filled"></use>
+        <use href="${u}#icon-full-star"></use>
       </svg>
-    `;for(let n=m;n<5;n+=1)d+=`
+    `;d>=.75?c+=`
+      <svg class="modal-event__star modal-event__star--filled" width="16" height="16">
+        <use href="${u}#icon-full-star"></use>
+      </svg>
+    `:_&&(c+=`
+      <svg class="modal-event__star modal-event__star--half" width="16" height="16">
+        <use href="${u}#icon-half-star"></use>
+      </svg>
+    `);for(let a=E;a<5;a+=1)c+=`
       <svg class="modal-event__star modal-event__star--empty" width="16" height="16">
-        <use href="${v}#icon-star-empty"></use>
+        <use href="${u}#icon-star"></use>
       </svg>
-    `;const L=b.map(n=>`<li>${n}</li>`).join(""),w=$.map(n=>`<li>${n}</li>`).join(""),E=`
+    `;const S=L.map(a=>`<li>${a}</li>`).join(""),M=w.map(a=>`<li>${a}</li>`).join(""),O=`
     <button type="button" class="modal-close-btn" data-modal-close>×</button>
     
     <div class="modal-event__wrapper">
       <div class="modal-event__media">
-        <img class="modal-event__img" src="${o}" alt="${i}" />
+        <img class="modal-event__img" src="${s}" alt="${l}" />
       </div>
       
       <div class="modal-event__content">
         <div class="modal-event__header-meta">
-          <span class="modal-event__category">${h.name}</span>
-          <div class="modal-event__stars">${d}</div>
+          <span class="modal-event__category">${$.name}</span>
+          <div class="modal-event__stars">${c}</div>
         </div>
         
-        <h2 class="modal-event__title">${i}</h2>
+        <h2 class="modal-event__title">${l}</h2>
         <p class="modal-event__desc">${e}</p>
         
         <div class="modal-event__lists">
           <div class="modal-event__list-block">
             <h3>Програма заходу</h3>
-            <ul>${L}</ul>
+            <ul>${S}</ul>
           </div>
           
           <div class="modal-event__list-block">
             <h3>Що включено у вартість</h3>
-            <ul>${w}</ul>
+            <ul>${M}</ul>
           </div>
         </div>
         
         <div class="modal-event__meta">
-          <p><b>Тривалість:</b> ${c} години</p>
-          <p><b>Кількість учасників:</b> від ${u.min} до ${u.max} осіб</p>
-          <p class="modal-event__price"><b>Ціна:</b> ${l.prefix} ${l.value} ${l.currency}</p>
+          <p><b>Тривалість:</b> ${i} години</p>
+          <p><b>Кількість учасників:</b> від ${p.min} до ${p.max} осіб</p>
+          <p class="modal-event__price"><b>Ціна:</b> ${m.prefix} ${m.value} ${m.currency}</p>
         </div>
         
-        <button type="button" class="modal-event__order-btn" data-event-id="${r}">Замовити івент</button>
+        <button type="button" class="modal-event__order-btn" data-event-id="${n}">Замовити івент</button>
       </div>
     </div>
-  `;s.innerHTML=E}const p=document.querySelector(".test-modal-btn"),a=document.querySelector(".event-modal-overlay");p&&p.addEventListener("click",async t=>{const s=t.currentTarget.dataset.id;try{const r=await S(s);k(r),document.body.classList.add("no-scroll"),a.classList.add("is-open"),a.addEventListener("click",f),window.addEventListener("keydown",_)}catch{alert("Помилка завантаження даних з API GoIT")}});function f(t){(t.target.closest("[data-modal-close]")||t.target===a)&&y()}function _(t){t.code==="Escape"&&y()}function y(){a.classList.remove("is-open"),document.body.classList.remove("no-scroll"),a.removeEventListener("click",f),window.removeEventListener("keydown",_);const t=a.querySelector(".modal-product");t&&(t.innerHTML="")}
+  `;o.innerHTML=O}const h=document.querySelector(".test-modal-btn"),r=document.querySelector(".event-modal-overlay");h&&h.addEventListener("click",async t=>{const o=t.currentTarget.dataset.id;try{const n=await q(o);P(n),document.body.classList.add("no-scroll"),r.classList.add("is-open"),r.addEventListener("click",g),window.addEventListener("keydown",y)}catch{alert("Помилка завантаження даних з API GoIT")}});function g(t){(t.target.closest("[data-modal-close]")||t.target===r)&&b()}function y(t){t.code==="Escape"&&b()}function b(){r.classList.remove("is-open"),document.body.classList.remove("no-scroll"),r.removeEventListener("click",g),window.removeEventListener("keydown",y);const t=r.querySelector(".modal-product");t&&(t.innerHTML="")}
 //# sourceMappingURL=index.js.map
