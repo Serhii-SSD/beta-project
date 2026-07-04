@@ -25,7 +25,7 @@
 
 .modal-product {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 24px;
   position: relative;
   box-sizing: border-box;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
@@ -93,8 +93,7 @@
   gap: 4px;
 }
 
-.modal-event__star--filled,
-.modal-event__star--half {
+.modal-event__star--filled {
   fill: #ffb800;
 }
 
@@ -163,7 +162,7 @@
   width: 100%;
   max-width: 320px;
   height: 48px;
-  background-color: #ffd554;
+  background-color: #ffb800;
   border: none;
   border-radius: 8px;
   font-family: inherit;
@@ -243,4 +242,12 @@
   .modal-event__media {
     max-width: 560px;
   }
+}
+.modal-event__star--filled,
+.modal-event__star--half {
+  fill: #ffb800;
+}
+
+.modal-event__star--empty {
+  fill: #e0e0e0;
 }

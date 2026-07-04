@@ -18,21 +18,38 @@ export function renderEventModal(event) {
     inclusions
   } = event;
 
-  const roundedRating = Math.round(rate);
   let starsMarkup = '';
+  const fullStars = Math.floor(rate);
+  const remainder = rate - fullStars;
+  const hasHalfStar = remainder >= 0.25 && remainder < 0.75;
+  const totalIconsCalculated = fullStars + (hasHalfStar ? 1 : (remainder >= 0.75 ? 1 : 0));
 
-  for (let i = 0; i < roundedRating; i += 1) {
+  for (let i = 0; i < fullStars; i += 1) {
     starsMarkup += `
       <svg class="modal-event__star modal-event__star--filled" width="16" height="16">
-        <use href="${iconsUrl}#icon-star-filled"></use>
+        <use href="${iconsUrl}#icon-full-star"></use>
       </svg>
     `;
   }
 
-  for (let i = roundedRating; i < 5; i += 1) {
+  if (remainder >= 0.75) {
+    starsMarkup += `
+      <svg class="modal-event__star modal-event__star--filled" width="16" height="16">
+        <use href="${iconsUrl}#icon-full-star"></use>
+      </svg>
+    `;
+  } else if (hasHalfStar) {
+    starsMarkup += `
+      <svg class="modal-event__star modal-event__star--half" width="16" height="16">
+        <use href="${iconsUrl}#icon-half-star"></use>
+      </svg>
+    `;
+  }
+
+  for (let i = totalIconsCalculated; i < 5; i += 1) {
     starsMarkup += `
       <svg class="modal-event__star modal-event__star--empty" width="16" height="16">
-        <use href="${iconsUrl}#icon-star-empty"></use>
+        <use href="${iconsUrl}#icon-star"></use>
       </svg>
     `;
   }
