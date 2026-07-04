@@ -1,4 +1,4 @@
-import iconsUrl from '../img/sprite.svg';
+import iconsUrl from '/img/sprite.svg';
 
 export function renderEventModal(event) {
   const modalContainer = document.querySelector('.modal-product');
