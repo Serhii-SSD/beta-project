@@ -46,3 +46,4 @@ function destroyModal() {
   const modalContainer = modalOverlay.querySelector('.modal-product');
   if (modalContainer) modalContainer.innerHTML = '';
 }
+// ..
